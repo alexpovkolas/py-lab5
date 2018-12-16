@@ -22,11 +22,3 @@ def flatten(it):
             yield from flatten(i)
         else:
             yield i
-
-
-for real_call_count in range(1, 5):
-    assert smart_function() == real_call_count
-
-expected = [1, 2, 0, 1, 1, 2, 1, 'ab']
-actual = flatten([1, 2, range(2), [[], [1], [[2]]], (x for x in [1]), 'ab'])
-assert expected == list(actual)
